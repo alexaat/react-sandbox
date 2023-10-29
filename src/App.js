@@ -3,7 +3,7 @@ import Page1 from "./components/Page1";
 import Page2 from "./components/Page2";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
 
@@ -12,10 +12,14 @@ function App() {
 
   return (
     <div className="App">
-      <SignIn onSubmit={signInSubmitHandler}/>
-      <SignUp onSubmit={signUpSubmitHandler}/>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/signin" element={<SignIn onSubmit={signInSubmitHandler} />} />
+          <Route path="/signup" element={<SignUp onSubmit={signUpSubmitHandler} />} />
+        </Routes>
+      </BrowserRouter>
 
-{/*       
+      {/*       
       <UserProvider>
         <Page1 />
         <Page2 />
