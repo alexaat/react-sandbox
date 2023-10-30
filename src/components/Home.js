@@ -1,6 +1,8 @@
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import { useUser } from '../context/UserProvider';
+import { useState } from 'react';
+import { getDocs, collection, getFirestore } from 'firebase/firestore';
 
 const Home = () => {
 
@@ -14,15 +16,46 @@ const Home = () => {
         navigate('/signin');
     }
 
+    const [users, setUsers] = useState();
+    const db = getFirestore();
+    const fetchDataFromFirestore = async () => {
+        const docSnap = await getDocs(collection(db, 'users'));
+        if (docSnap) {
+            const arr = [];
+            docSnap.forEach(doc => {
+                arr.push(doc.data())
+            });
+            setUsers(arr);
+        }
+    }
+
     return (
         <div className='home-container'>
             <h3>Home</h3>
             <h5>User: {user && user.name}</h5>
-            <input type='button' value='SignOut' onClick={() => auth.signOut()} />
+            <div>
+                {users &&
+                    users.map((item, index) => {
+                        return (
+                            <div key={index} className='user-container'>
+                                <div className='user-item'><div className='item-key'>Id:</div><div>{item.id}</div> </div>
+                                <div className='user-item'><div className='item-key'>Name:</div><div>{item.name}</div> </div>
+                                <div className='user-item'><div className='item-key'>Email:</div><div>{item.email}</div> </div>
+                                <div className='user-item'><div className='item-key'>Password:</div><div>{item.password}</div> </div>
+                            </div>)
+                    })
+                }
+            </div>
+            <div className='buttons'>
+                <input type='button' value='Show Users' onClick={() => fetchDataFromFirestore()} />
+                <input type='button' value='SignOut' onClick={() => auth.signOut()} />
+            </div>
+
             <div className='links'>
                 <a href='page1'>Page1</a>
                 <a href='page2'>Page2</a>
             </div>
+
 
         </div>
     );

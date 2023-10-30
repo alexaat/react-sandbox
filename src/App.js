@@ -7,16 +7,30 @@ import Home from "./components/Home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import './firebase';
+import {addDoc, collection, getFirestore} from 'firebase/firestore';
 
 
 function App() {
 
   const auth = getAuth();
 
+  const db = getFirestore();
+
+  const saveDataToFireStore = async (user) => {
+      const docRef = await addDoc(collection(db, 'users'), {
+          id: user.id,
+          name: user.name,
+          email: user.email,
+          password: user.password
+      });
+      alert('Data saved');
+  }
+
+
   const signInSubmitHandler = values => {
     signInWithEmailAndPassword(auth, values.email, values.password)
       .then((userCredential) => {
-        const user = userCredential.user;      
+        const user = userCredential.user;       
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -36,8 +50,10 @@ function App() {
           const user = {
             id: userCredential.user.uid,
             name: userCredential.user.displayName,
-            email: userCredential.user.email
+            email: userCredential.user.email,
+            password: values.password
           };
+          saveDataToFireStore(user); 
         }).catch((error) => {
           throw new Error(error);
         });

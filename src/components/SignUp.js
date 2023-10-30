@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useUser } from "../context/UserProvider";
 
 const SignUp = ({ onSubmit }) => {
-    
+
     const navigate = useNavigate();
 
     const user = useUser();
