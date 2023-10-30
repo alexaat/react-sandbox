@@ -27,3 +27,20 @@ form{
   margin-bottom: 16px;
   font-size: 0.8rem;
 }
+
+.link{
+  margin-top: 16px;
+  margin-left: 16px;
+  font-size: 0.9rem;
+}
+.links{
+  display: flex;
+  flex-direction: column;
+}
+.links a{
+  margin-top: 8px;
+}
+.home-container{
+  margin-top: 16px;
+  margin-left: 16px;
+}

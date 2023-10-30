@@ -2,11 +2,11 @@ import { useUser } from "../context/UserProvider";
 
 const Page2 = () => {
 
-    const name = useUser();
+    const user = useUser();
 
     return (
         <h3>
-            Name is: {name}
+            Name is: {user && user.name}
         </h3>
     );
 }

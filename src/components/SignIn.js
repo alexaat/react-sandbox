@@ -1,6 +1,15 @@
 import { useFormik } from "formik";
+import { useNavigate } from "react-router-dom";
+import { useUser } from "../context/UserProvider";
 
 const SignIn = ({onSubmit}) => {
+
+    const navigate = useNavigate();
+
+    const user = useUser();
+    if(user){
+        navigate('/');
+    }
 
     const initialValues = {
             email: '',
@@ -27,6 +36,7 @@ const SignIn = ({onSubmit}) => {
     });
 
     return (
+        <>
         <form onSubmit={formik.handleSubmit}>
            
            <div className="input-container">
@@ -52,8 +62,10 @@ const SignIn = ({onSubmit}) => {
             />
             {formik.touched.password && formik.errors.password ? <div className="error">{formik.errors.password}</div> : null}
             </div>
-            <input type='submit' value='Submit'/>
+            <input type='submit' value='Submit'/>            
         </form>
+        <div className="link"><a href='/signup'>Create Account</a></div>
+        </>
     );
 }
 
