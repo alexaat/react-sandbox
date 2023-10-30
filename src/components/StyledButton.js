@@ -25,6 +25,19 @@ export const TextInput = styled(TextField)(({theme}) => ({
       backgroundColor: 'pink',
 }));
 
+export const StyledTextField = styled(TextField)(({theme}) => ({
+   '& .MuiInputBase-root': {
+    
+      border: '2px solid #666',
+      borderRadius: '8px',
+      height: '42px'
+    },
+    '& .MuiOutlinedInput-notchedOutline': {
+      border: '0'
+    }
+
+}));
+
 
 export const RedditTextField = styled((props) => (
     <TextField {...props} />
