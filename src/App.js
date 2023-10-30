@@ -6,7 +6,7 @@ import SignUp from "./components/SignUp";
 import Home from "./components/Home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { app } from './firebase';
+import './firebase';
 
 
 function App() {
