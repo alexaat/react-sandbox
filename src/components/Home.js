@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useUser } from '../context/UserProvider';
 import { useState } from 'react';
 import { getDocs, collection, getFirestore } from 'firebase/firestore';
+import { StyledButton } from './StyledButton';
 
 const Home = () => {
 
@@ -49,6 +50,7 @@ const Home = () => {
             <div className='buttons'>
                 <input type='button' value='Show Users' onClick={() => fetchDataFromFirestore()} />
                 <input type='button' value='SignOut' onClick={() => auth.signOut()} />
+                <StyledButton size='small'>Pink</StyledButton>
             </div>
 
             <div className='links'>
