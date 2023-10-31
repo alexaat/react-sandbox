@@ -4,6 +4,8 @@ import { useUser } from '../context/UserProvider';
 import { useState } from 'react';
 import { getDocs, collection, getFirestore } from 'firebase/firestore';
 import { StyledButton } from './StyledButton';
+import {RedditTextField, TextInput} from './StyledButton';
+import {TextField} from '@mui/material';
 
 const Home = () => {
 
@@ -33,6 +35,20 @@ const Home = () => {
     return (
         <div className='home-container'>
             <h3>Home</h3>
+            <TextField sx={{               
+                width:600
+               
+                
+
+            }}
+            inputProps={{
+               sx: {height: '42px', py: 0}
+            }}
+            label='Display Name'
+            
+            />
+
+            <div style={{width: '300px', height: '42px', background: 'green'}}></div>
             <h5>User: {user && user.name}</h5>
             <div>
                 {users &&
