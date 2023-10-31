@@ -58,31 +58,20 @@ const Home = () => {
                     //Active: #999
                     //Not Active #111
 
-                    // "& .MuiOutlinedInput-root": {
-                    //     "&.Mui-focused fieldset": {
-                    //       borderColor: 'red',
-                    //     },
-                    //     "&.Mui-selected fieldset": {
-                    //         borderColor: 'red'
-                    //       },
-                    // }, 
-
-
-
                     
                     //Border Color when selected
-                    '& .MuiOutlinedInput-root' : {
-                        "&.Mui-focused fieldset": {
-                          borderColor: '#111',
-                          color: 'orange'
-                        },
-                    },
+                    // '& .MuiOutlinedInput-root' : {
+                    //     "&.Mui-focused fieldset": {
+                    //       borderColor: '#111',
+                    //       //color: 'orange'
+                    //     },
+                    // },
 
 
                     //Border Color when hover
                     "& .MuiOutlinedInput-root:hover": {
                         "& > fieldset": {
-                          borderColor: "#111"
+                          borderColor: "#999"
                         }
                     },
 
@@ -105,6 +94,7 @@ const Home = () => {
                             color: '#111'
                         },
                     },
+
                 }}
 
                 //Input height
@@ -117,6 +107,51 @@ const Home = () => {
                 />
 
 
+                <TextField
+                    label='Display Name'
+                    size='small'
+                    
+                    sx={{
+                        //Label Color
+                        '& .MuiFormLabel-root.MuiInputLabel-root':{
+                            color: 'pink'   
+                        },
+                        '& .MuiFormLabel-root.MuiInputLabel-root.Mui-focused':{
+                            color: 'red'
+                        },
+
+                        //Text Color
+                        '& .MuiInputBase-input.MuiOutlinedInput-input':{
+                            color: 'pink',
+                        },
+                        '& .MuiInputBase-root.MuiOutlinedInput-root.Mui-focused input':{
+                            color: 'red',
+                        },
+
+                        //Border
+                        '& .MuiOutlinedInput-notchedOutline' :{
+                            border: '2px solid pink',
+                            borderRadius: '8px'
+                        },
+                        '& .MuiInputBase-root.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline':{
+                            border: '2px solid red',
+                        },
+
+                        //Border hover
+                        '& .MuiInputBase-root.MuiOutlinedInput-root:hover': {
+                            '& > fieldset': {
+                              borderColor: "pink"
+                            }
+                        },
+
+                        //Height:
+                        '& .MuiInputBase-root.MuiOutlinedInput-root':{
+                            height: '42px'
+                        }
+
+                    }}
+                
+                />
 
 
                 <div style={{ width: '300px', height: '42px', background: 'green' }}></div>
