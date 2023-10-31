@@ -52,7 +52,11 @@ const Home = () => {
                 label='Display Name'
                 size='small'
 
-                sx={{                    
+                sx={{   
+                    
+                    
+                    //Active: #999
+                    //Not Active #111
 
                     // "& .MuiOutlinedInput-root": {
                     //     "&.Mui-focused fieldset": {
@@ -69,7 +73,7 @@ const Home = () => {
                     //Border Color when selected
                     '& .MuiOutlinedInput-root' : {
                         "&.Mui-focused fieldset": {
-                          borderColor: 'orange',
+                          borderColor: '#111',
                           color: 'orange'
                         },
                     },
@@ -78,27 +82,27 @@ const Home = () => {
                     //Border Color when hover
                     "& .MuiOutlinedInput-root:hover": {
                         "& > fieldset": {
-                          borderColor: "orange"
+                          borderColor: "#111"
                         }
                     },
 
 
                     //Input text color
                     '& .MuiInputBase-input' : {
-                        color: 'orange',                                     
+                        color: '#111',                                     
                     },
 
                     //Border color and radius
                     '& .MuiOutlinedInput-notchedOutline': {                      
-                        border: '2px solid yellow',
+                        border: '2px solid #999',
                         borderRadius: '8px',
                     },
 
                     //Label color
                     '& .MuiFormLabel-root': {
-                        color: 'orange',
+                        color: '#999',
                         '&.Mui-focused': {                          
-                            color: 'yellow'
+                            color: '#111'
                         },
                     },
                 }}
