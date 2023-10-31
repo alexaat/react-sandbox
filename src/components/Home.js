@@ -5,7 +5,8 @@ import { useState } from 'react';
 import { getDocs, collection, getFirestore } from 'firebase/firestore';
 import { StyledButton } from './StyledButton';
 import { RedditTextField, TextInput, StyledTextField } from './StyledButton';
-import { InputBase, TextField } from '@mui/material';
+import { TextField } from '@mui/material';
+
 
 const Home = () => {
 
@@ -32,24 +33,105 @@ const Home = () => {
         }
     }
 
+
+
+
     return (
         <div className='home-container'>
             <h3>Home</h3>
 
             <div style={{ display: 'flex', flexDirection: 'row' }}>
-                <StyledTextField 
-                disabled
-                variant='outlined'
+                <StyledTextField
+                    disabled
+                    variant='outlined'
+                    label='Display Name'
+                />
+
+                <TextField
+                
                 label='Display Name'
-             
+                size='small'
+
+                sx={{                    
+                    '& .MuiOutlinedInput-notchedOutline': {
+                        color: '#666',
+                        border: '2px solid #666',
+                        borderRadius: '8px',
+                        '&.Mui-focused': {
+                            border: '2px solid #111',
+                            color: '#111'
+                        },
+                    },
+                    '&.Mui-focused': {
+                        border: '2px solid #111',
+                        color: '#111'
+                    },
+
+                }}
+
+                InputProps={{
+                    sx: {                      
+                       height: '42px',
+                },
+
                 
 
-               
+          
+
+
  
+                  
+                }}
 
                 />
 
-                <div style={{ width: '300px', height: '42px', background: 'green'}}></div>
+
+                <TextField
+                    label='Display Name'
+                    size='small'                   
+                    sx={{
+
+                        //Label
+                        '& .MuiInputLabel-root':{
+                            color:'#666',
+                            background: 'white',
+  
+                            
+                            '&.Mui-focused': {
+                                color: '#111',                                                       
+                            }
+                        },
+
+                        //Border                        
+                        '& .MuiOutlinedInput-root': {
+                            background: 'pink',
+                            borderRadius: '8px',
+                            border: '2px solid #666',
+                            height: '42px',  
+                            color: '#666',
+                            '&.Mui-focused': {
+                                border: '2px solid #111',
+                                color: '#111'
+                            }
+                        },
+                        '& .MuiOutlinedInput-notchedOutline': {
+                            border: '0'
+                        },
+                        
+
+
+    
+                    }} 
+
+                    
+                    
+                
+
+                />
+
+
+
+                <div style={{ width: '300px', height: '42px', background: 'green' }}></div>
 
             </div>
 
