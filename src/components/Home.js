@@ -53,81 +53,65 @@ const Home = () => {
                 size='small'
 
                 sx={{                    
-                    '& .MuiOutlinedInput-notchedOutline': {
-                        color: '#666',
-                        border: '2px solid #666',
-                        borderRadius: '8px',
-                        '&.Mui-focused': {
-                            border: '2px solid #111',
-                            color: '#111'
+
+                    // "& .MuiOutlinedInput-root": {
+                    //     "&.Mui-focused fieldset": {
+                    //       borderColor: 'red',
+                    //     },
+                    //     "&.Mui-selected fieldset": {
+                    //         borderColor: 'red'
+                    //       },
+                    // }, 
+
+
+
+                    
+                    //Border Color when selected
+                    '& .MuiOutlinedInput-root' : {
+                        "&.Mui-focused fieldset": {
+                          borderColor: 'orange',
+                          color: 'orange'
                         },
                     },
-                    '&.Mui-focused': {
-                        border: '2px solid #111',
-                        color: '#111'
+
+
+                    //Border Color when hover
+                    "& .MuiOutlinedInput-root:hover": {
+                        "& > fieldset": {
+                          borderColor: "orange"
+                        }
                     },
 
+
+                    //Input text color
+                    '& .MuiInputBase-input' : {
+                        color: 'orange',                                     
+                    },
+
+                    //Border color and radius
+                    '& .MuiOutlinedInput-notchedOutline': {                      
+                        border: '2px solid yellow',
+                        borderRadius: '8px',
+                    },
+
+                    //Label color
+                    '& .MuiFormLabel-root': {
+                        color: 'orange',
+                        '&.Mui-focused': {                          
+                            color: 'yellow'
+                        },
+                    },
                 }}
 
+                //Input height
                 InputProps={{
                     sx: {                      
                        height: '42px',
-                },
-
-                
-
-          
-
-
- 
-                  
+                    },                  
                 }}
 
                 />
 
-
-                <TextField
-                    label='Display Name'
-                    size='small'                   
-                    sx={{
-
-                        //Label
-                        '& .MuiInputLabel-root':{
-                            color:'#666',
-                            background: 'white',
-  
-                            
-                            '&.Mui-focused': {
-                                color: '#111',                                                       
-                            }
-                        },
-
-                        //Border                        
-                        '& .MuiOutlinedInput-root': {
-                            background: 'pink',
-                            borderRadius: '8px',
-                            border: '2px solid #666',
-                            height: '42px',  
-                            color: '#666',
-                            '&.Mui-focused': {
-                                border: '2px solid #111',
-                                color: '#111'
-                            }
-                        },
-                        '& .MuiOutlinedInput-notchedOutline': {
-                            border: '0'
-                        },
-                        
-
-
-    
-                    }} 
-
-                    
-                    
-                
-
-                />
 
 
 
