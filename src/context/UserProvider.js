@@ -11,17 +11,17 @@ const UserProvider = ({ children }) => {
 
     const auth = getAuth();
 
-    onAuthStateChanged(auth, (currentUser) => {
-        if (currentUser) {
-            setUser({
-                id: currentUser.uid,
-                name: currentUser.displayName,
-                email: currentUser.email
-            });
-        } else {
-            setUser(null);
-        }
-    });
+    // onAuthStateChanged(auth, (currentUser) => {
+    //     if (currentUser) {
+    //         setUser({
+    //             id: currentUser.uid,
+    //             name: currentUser.displayName,
+    //             email: currentUser.email
+    //         });
+    //     } else {
+    //         setUser(null);
+    //     }
+    // });
 
     return (
         <UserContext.Provider value={user}>

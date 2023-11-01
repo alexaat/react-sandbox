@@ -27,62 +27,202 @@ export const TextInput = styled(TextField)(({ theme }) => ({
 
 
 
-export const StyledTextField = styled(TextField)(({ theme }) => (
-  <TextField
-  label='Display Name'
-  size='small'
-  helperText='Some error'
+export const StyledInputText = (props) => {
+  const { label, height, colorActive, colorNotActive, sx, ...extra_props } = props;
 
-  sx={{
+  const h = height ? height : '42px';
+
+  const color_active = colorActive ? colorActive : 'red';
+  const color_not_active = colorNotActive ? colorNotActive : 'pink';
+
+  return (
+    <TextField
+
+      {...extra_props}
+
+      label={label}
+      size='small'
+   
+
+    
+
+      sx={(theme) => ({
+        // accessing theme
+        //backgroundColor: theme.palette.primary.main,
+
+        //Label Color
+        '& .MuiFormLabel-root.MuiInputLabel-root': {
+          color: color_not_active
+        },
+        '& .MuiFormLabel-root.MuiInputLabel-root.Mui-focused': {
+          color: color_active
+        },
+
+        //Text Color
+        '& .MuiInputBase-input.MuiOutlinedInput-input': {
+          color: color_not_active
+        },
+        '& .MuiInputBase-root.MuiOutlinedInput-root.Mui-focused input': {
+          color: color_active
+        },
+
+        //Border
+        '& .MuiOutlinedInput-notchedOutline': {
+          border: `2px solid ${color_not_active}`,
+          borderRadius: '8px'
+        },
+        '& .MuiInputBase-root.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
+          border: `2px solid ${color_active}`,
+        },
+
+        //Border hover
+        '& .MuiInputBase-root.MuiOutlinedInput-root:hover': {
+          '& > fieldset': {
+            borderColor: color_not_active
+          }
+        },
+
+        //Height:
+        '& .MuiInputBase-root.MuiOutlinedInput-root': {
+          height: h
+        },
+
+        //Helper text
+        '& .MuiFormHelperText-root': {
+          color: theme.palette.error,
+          fontSize: '0.7em'
+        },
+        ...sx
+
+
+      })}
+
+      // sx={{
+
+
+
+
+      // }}
+
+    />
+
+  );
+}
+
+
+
+
+export const StyledTextField = styled(TextField, {
+
+})
+  (
+    ({ label, theme }) => ({
+      label: { label },
+
+      size: 'small',
+
       //Label Color
-      '& .MuiFormLabel-root.MuiInputLabel-root':{
-          color: 'pink'   
+      '& .MuiFormLabel-root.MuiInputLabel-root': {
+        color: 'pink'
       },
-      '& .MuiFormLabel-root.MuiInputLabel-root.Mui-focused':{
-          color: 'red'
+      '& .MuiFormLabel-root.MuiInputLabel-root.Mui-focused': {
+        color: 'red'
       },
 
       //Text Color
-      '& .MuiInputBase-input.MuiOutlinedInput-input':{
-          color: 'pink',
+      '& .MuiInputBase-input.MuiOutlinedInput-input': {
+        color: 'pink',
       },
-      '& .MuiInputBase-root.MuiOutlinedInput-root.Mui-focused input':{
-          color: 'red',
+      '& .MuiInputBase-root.MuiOutlinedInput-root.Mui-focused input': {
+        color: 'red',
       },
 
       //Border
-      '& .MuiOutlinedInput-notchedOutline' :{
-          border: '2px solid pink',
-          borderRadius: '8px'
+      '& .MuiOutlinedInput-notchedOutline': {
+        border: '2px solid pink',
+        borderRadius: '8px'
       },
-      '& .MuiInputBase-root.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline':{
-          border: '2px solid red',
+      '& .MuiInputBase-root.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
+        border: '2px solid red',
       },
 
       //Border hover
       '& .MuiInputBase-root.MuiOutlinedInput-root:hover': {
-          '& > fieldset': {
-            borderColor: "pink"
-          }
+        '& > fieldset': {
+          borderColor: "pink"
+        }
       },
 
       //Height:
-      '& .MuiInputBase-root.MuiOutlinedInput-root':{
-          height: '42px'
+      '& .MuiInputBase-root.MuiOutlinedInput-root': {
+        height: '42px'
       },
 
       //Helper text
-      '& .MuiFormHelperText-root':{
-          color: 'red',
-          fontSize: '0.7em'
+      '& .MuiFormHelperText-root': {
+        color: 'red',
+        fontSize: '0.7em'
       }
+    })
+  )
 
-  }}
 
-/>
-  
+// export const StyledTextField = styled(TextField)(({ theme }) => (
+//   <TextField
+//   label='Display Name'
+//   size='small'
+//   helperText='Some error'
 
-));
+//   sx={{
+//       //Label Color
+//       '& .MuiFormLabel-root.MuiInputLabel-root':{
+//           color: 'pink'   
+//       },
+//       '& .MuiFormLabel-root.MuiInputLabel-root.Mui-focused':{
+//           color: 'red'
+//       },
+
+//       //Text Color
+//       '& .MuiInputBase-input.MuiOutlinedInput-input':{
+//           color: 'pink',
+//       },
+//       '& .MuiInputBase-root.MuiOutlinedInput-root.Mui-focused input':{
+//           color: 'red',
+//       },
+
+//       //Border
+//       '& .MuiOutlinedInput-notchedOutline' :{
+//           border: '2px solid pink',
+//           borderRadius: '8px'
+//       },
+//       '& .MuiInputBase-root.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline':{
+//           border: '2px solid red',
+//       },
+
+//       //Border hover
+//       '& .MuiInputBase-root.MuiOutlinedInput-root:hover': {
+//           '& > fieldset': {
+//             borderColor: "pink"
+//           }
+//       },
+
+//       //Height:
+//       '& .MuiInputBase-root.MuiOutlinedInput-root':{
+//           height: '42px'
+//       },
+
+//       //Helper text
+//       '& .MuiFormHelperText-root':{
+//           color: 'red',
+//           fontSize: '0.7em'
+//       }
+
+//   }}
+
+// />
+
+
+//));
 
 
 export const RedditTextField = styled((props) => (

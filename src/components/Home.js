@@ -4,11 +4,18 @@ import { useUser } from '../context/UserProvider';
 import { useState } from 'react';
 import { getDocs, collection, getFirestore } from 'firebase/firestore';
 import { StyledButton } from './StyledButton';
-import { RedditTextField, TextInput, StyledTextField } from './StyledButton';
+import { RedditTextField, TextInput, StyledInputText, NewStyledComponent } from './StyledButton';
 import { TextField } from '@mui/material';
 
 
 const Home = () => {
+
+    const [text, setText] = useState('')
+
+    const handleChange = (e) => {
+        setText(e.target.value);
+        console.log(document.querySelector('#customTextField').value)
+    }
 
     const user = useUser();
 
@@ -40,8 +47,12 @@ const Home = () => {
         <div className='home-container'>
             <h3>Home</h3>
 
+          
+
+            
+
             <div style={{ display: 'flex', flexDirection: 'row' }}>
-                <StyledTextField
+                {/* <StyledTextField
                     disabled
                     variant='outlined'
                     label='Display Name'
@@ -104,11 +115,11 @@ const Home = () => {
                     },                  
                 }}
 
-                />
+                /> */}
 
-                <StyledTextField/>
+                <StyledInputText label='Display Name2' colorActive='yellow' colorNotActive='orange' onChange={handleChange} value={text} id='customTextField'/>
 
-                <TextField
+                 {/* <TextField
                     label='Display Name'
                     size='small'
                     helperText='Some error'
@@ -159,7 +170,7 @@ const Home = () => {
 
                     }}
                 
-                />
+                />  */}
 
 
                 <div style={{ width: '300px', height: '42px', background: 'green' }}></div>
@@ -185,7 +196,7 @@ const Home = () => {
             <div className='buttons'>
                 <input type='button' value='Show Users' onClick={() => fetchDataFromFirestore()} />
                 <input type='button' value='SignOut' onClick={() => auth.signOut()} />
-                <StyledButton size='small'>Pink</StyledButton>
+                <StyledButton size='small' >Pink</StyledButton>
             </div>
 
             <div className='links'>
