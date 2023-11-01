@@ -106,11 +106,13 @@ const Home = () => {
 
                 />
 
+                <StyledTextField/>
 
                 <TextField
                     label='Display Name'
                     size='small'
-                    
+                    helperText='Some error'
+
                     sx={{
                         //Label Color
                         '& .MuiFormLabel-root.MuiInputLabel-root':{
@@ -147,6 +149,12 @@ const Home = () => {
                         //Height:
                         '& .MuiInputBase-root.MuiOutlinedInput-root':{
                             height: '42px'
+                        },
+
+                        //Helper text
+                        '& .MuiFormHelperText-root':{
+                            color: 'red',
+                            fontSize: '0.7em'
                         }
 
                     }}
